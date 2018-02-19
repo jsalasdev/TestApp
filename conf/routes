@@ -1,0 +1,27 @@
+GET        /        controllers.LoginController.index
+
+#CRUD ENTITIES
+#USERS
+POST        /api/v1/users                                     controllers.LoginController.saveUser()
+GET         /api/v1/users                                     controllers.LoginController.getAllUsers()
+GET         /api/v1/users/:id                                 controllers.LoginController.getUser(id : Integer)
+#GET         /api/v1/users/:latitude/:longitude                controllers.LoginController.getUsersFromLocation(latitude : Double, longitude : Double)
+GET         /api/v1/users/worker/:latitude/:longitude         controllers.LoginController.getWorkers(latitude : Double, longitude : Double)
+GET         /api/v1/users/company/:latitude/:longitude        controllers.LoginController.getCompanies(latitude : Double, longitude : Double)
+GET         /api/v1/users/center/:latitude/:longitude         controllers.LoginController.getCenters(latitude : Double, longitude : Double)
+
+#SECTORS
+GET         /api/v1/sectors                                   controllers.LoginController.getSectors()
+POST        /api/v1/sectors                                   controllers.LoginController.saveSector()
+
+#SUBSECTORS
+GET         /api/v1/subsectors/:id                            controllers.LoginController.getSubsectors(id : String)
+
+#PROFESSIONS
+GET         /api/v1/professions/:id_sector                    controllers.LoginController.getProfessions(id_sector : String)
+
+#USER COUNTRY COUNTER
+GET         /api/v1/total-users/:countryCode                  controllers.LoginController.getTotalUsers(countryCode : String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                                     controllers.Assets.versioned(path="/public", file: Asset)
